@@ -22,6 +22,7 @@ public class ApprovalEntity {
     private LocalDate approval_date;
     private String details;
     private String employee_rut;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id", nullable = false)
     private EmployeeEntity employee;

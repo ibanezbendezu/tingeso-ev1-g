@@ -17,8 +17,8 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping("/listar")
-    public String listar(Model model) {
+    @GetMapping("/list")
+    public String list(Model model) {
         ArrayList<EmployeeEntity> employees = employeeService.obtenerEmpleados();
         model.addAttribute("employees", employees);
         return "index";

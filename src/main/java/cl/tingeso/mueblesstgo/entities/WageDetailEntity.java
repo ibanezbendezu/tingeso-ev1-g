@@ -1,30 +1,34 @@
 package cl.tingeso.mueblesstgo.entities;
 
+import cl.tingeso.mueblesstgo.entities.enums.DetailType;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "absence_justification")
+@Table(name = "wage_detail")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class JustificationEntity {
+public class WageDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
 
     private Long id;
-    private LocalDate justification_date;
-    private String details;
-    private Boolean status;
-    private String employee_rut;
+    private String name;
+
+    @Enumerated(EnumType.STRING)
+    private DetailType type;
+
+    private BigDecimal amount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee_id", nullable = false)
-    private EmployeeEntity employee;
+    @JoinColumn(name = "wage_id", nullable = false)
+    private WageEntity wage;
 }

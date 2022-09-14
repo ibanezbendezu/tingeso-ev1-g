@@ -6,23 +6,24 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "absence_justification")
+@Table(name = "wage")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class JustificationEntity {
+public class WageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
 
     private Long id;
-    private LocalDate justification_date;
-    private String details;
-    private Boolean status;
-    private String employee_rut;
+    private LocalDate date;
+
+    @OneToMany(mappedBy = "wage", fetch = FetchType.LAZY)
+    private List<WageDetailEntity> detail;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id", nullable = false)

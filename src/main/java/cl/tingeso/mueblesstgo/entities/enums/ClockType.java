@@ -1,5 +1,5 @@
 package cl.tingeso.mueblesstgo.entities.enums;
 
-public enum CategoryType {
-    A, B, C
+public enum ClockType {
+    CLOCK_IN, CLOCK_OUT
 }

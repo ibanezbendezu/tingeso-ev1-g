@@ -25,6 +25,6 @@ public class ClockUploadController {
     public String save(@RequestParam("file") MultipartFile file, RedirectAttributes ms) {
         upload.saveClock(file);
         ms.addFlashAttribute("mensaje", "Archivo guardado correctamente!!");
-        return "redirect:/upload";
+        return "redirect:/upload-clock";
     }
 }

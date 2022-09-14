@@ -1,5 +1,6 @@
 package cl.tingeso.mueblesstgo.entities;
 
+import cl.tingeso.mueblesstgo.entities.enums.ClockType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,9 +23,13 @@ public class ClockEntity {
     @Column(unique = true, nullable = false)
 
     private Long id;
-    private LocalDate check_date;
-    private LocalTime check_time;
+    private LocalDate clock_date;
+    private LocalTime clock_hour;
     private String rut;
+
+    @Enumerated(EnumType.STRING)
+    private ClockType type;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id", nullable = false)
     private EmployeeEntity employee;

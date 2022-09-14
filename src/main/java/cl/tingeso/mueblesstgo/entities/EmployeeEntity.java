@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "employee")
@@ -26,4 +27,7 @@ public class EmployeeEntity {
     private Date hire_date;
     private Character category;
     private Long fixed_monthly_wage;
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<ClockEntity> marks;
 }

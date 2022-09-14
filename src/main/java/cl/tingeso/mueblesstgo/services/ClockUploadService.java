@@ -2,6 +2,7 @@ package cl.tingeso.mueblesstgo.services;
 
 import cl.tingeso.mueblesstgo.entities.ClockEntity;
 import cl.tingeso.mueblesstgo.entities.EmployeeEntity;
+import cl.tingeso.mueblesstgo.entities.enums.ClockType;
 import cl.tingeso.mueblesstgo.repositories.ClockRepository;
 import cl.tingeso.mueblesstgo.repositories.EmployeeRepository;
 import org.slf4j.Logger;
@@ -72,12 +73,18 @@ public class ClockUploadService {
                     String dateString = mark[0];
                     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
                     LocalDate date = LocalDate.parse(dateString, dateFormatter);
-                    newMark.setCheck_date(date);
+                    newMark.setClock_date(date);
 
                     String timeString = mark[1];
                     DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
                     LocalTime time = LocalTime.parse(timeString, timeFormatter);
-                    newMark.setCheck_time(time);
+                    newMark.setClock_hour(time);
+
+                    if (time.compareTo(LocalTime.parse("15:00")) > 0) {
+                        newMark.setType(ClockType.CLOCK_OUT);
+                    } else {
+                        newMark.setType(ClockType.CLOCK_IN);
+                    }
 
                     newMark.setRut(mark[2]);
 
