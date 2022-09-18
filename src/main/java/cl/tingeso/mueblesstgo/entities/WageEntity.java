@@ -1,8 +1,6 @@
 package cl.tingeso.mueblesstgo.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,16 +8,18 @@ import java.util.List;
 
 @Entity
 @Table(name = "wage")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
 public class WageEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-
     private Long id;
+
     private LocalDate date;
 
     @OneToMany(mappedBy = "wage", fetch = FetchType.LAZY)

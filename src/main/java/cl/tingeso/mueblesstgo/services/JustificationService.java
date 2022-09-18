@@ -21,7 +21,7 @@ public class JustificationService {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    private final Logger logg = LoggerFactory.getLogger(ClockUploadService.class);
+    private final Logger logg = LoggerFactory.getLogger(JustificationService.class);
 
     public void saveJustification(Map request) {
         if (!request.isEmpty()) {

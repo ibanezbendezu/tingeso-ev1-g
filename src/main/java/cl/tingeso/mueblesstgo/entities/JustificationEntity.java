@@ -1,15 +1,14 @@
 package cl.tingeso.mueblesstgo.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "absence_justification")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
@@ -17,8 +16,8 @@ public class JustificationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-
     private Long id;
+
     private LocalDate justification_date;
     private String details;
     private Boolean status;

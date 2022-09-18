@@ -1,5 +1,6 @@
 package cl.tingeso.mueblesstgo.controllers;
 
+import cl.tingeso.mueblesstgo.services.ClockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,13 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import cl.tingeso.mueblesstgo.services.ClockUploadService;
 
 @Controller
-public class ClockUploadController {
+public class ClockController {
 
     @Autowired
-    private ClockUploadService upload;
+    private ClockService upload;
 
     @GetMapping("/upload-clock")
     public String upload() {

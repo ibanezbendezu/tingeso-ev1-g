@@ -21,7 +21,7 @@ public class ApprovalService {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    private final Logger logg = LoggerFactory.getLogger(ClockUploadService.class);
+    private final Logger logg = LoggerFactory.getLogger(ApprovalService.class);
 
     public void saveApproval(Map request) {
         if (!request.isEmpty()) {

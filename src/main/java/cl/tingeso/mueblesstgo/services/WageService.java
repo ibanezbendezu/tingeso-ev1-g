@@ -1,7 +1,7 @@
 package cl.tingeso.mueblesstgo.services;
 
-import cl.tingeso.mueblesstgo.repositories.WageRepository;
-import cl.tingeso.mueblesstgo.entities.WageEntity;
+import cl.tingeso.mueblesstgo.entities.*;
+import cl.tingeso.mueblesstgo.repositories.*;
 import cl.tingeso.mueblesstgo.controllers.model.EmployeeVo;
 import cl.tingeso.mueblesstgo.controllers.model.WageDetailVo;
 import cl.tingeso.mueblesstgo.controllers.model.WageVo;
@@ -19,6 +19,7 @@ public class WageService {
     WageRepository wageRepository;
 
     public WageVo getById(Long id, boolean withEmployee) {
+
         WageEntity wage = this.wageRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encontró sueldo"));
         

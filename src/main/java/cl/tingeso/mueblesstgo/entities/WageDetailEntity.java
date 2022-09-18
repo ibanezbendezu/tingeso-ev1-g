@@ -2,16 +2,15 @@ package cl.tingeso.mueblesstgo.entities;
 
 import cl.tingeso.mueblesstgo.entities.enums.DetailType;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "wage_detail")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
@@ -19,8 +18,8 @@ public class WageDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-
     private Long id;
+
     private String name;
 
     @Enumerated(EnumType.STRING)
